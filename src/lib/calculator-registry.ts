@@ -97,6 +97,13 @@ export const CALCULATORS: CalculatorMeta[] = [
     description: "Weeks to reach your goal weight at a given weekly deficit.",
     category: "composition",
   },
+  {
+    slug: "ffmi",
+    short: "FFMI Calculator",
+    title: "FFMI Calculator — Fat-Free Mass Index & Muscle Level",
+    description: "See how much muscle you carry for your height and where you sit on the natural muscularity scale.",
+    category: "composition",
+  },
 
   // Training
   {
