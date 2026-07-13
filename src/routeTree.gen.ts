@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TdeeRouteImport } from './routes/tdee'
+import { Route as ProteinRouteImport } from './routes/protein'
 import { Route as MacrosRouteImport } from './routes/macros'
 import { Route as CalorieDeficitRouteImport } from './routes/calorie-deficit'
 import { Route as BmrRouteImport } from './routes/bmr'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const TdeeRoute = TdeeRouteImport.update({
   id: '/tdee',
   path: '/tdee',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProteinRoute = ProteinRouteImport.update({
+  id: '/protein',
+  path: '/protein',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MacrosRoute = MacrosRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/bmr': typeof BmrRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
   '/macros': typeof MacrosRoute
+  '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/bmr': typeof BmrRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
   '/macros': typeof MacrosRoute
+  '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,28 @@ export interface FileRoutesById {
   '/bmr': typeof BmrRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
   '/macros': typeof MacrosRoute
+  '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bmr' | '/calorie-deficit' | '/macros' | '/tdee'
+  fullPaths:
+    | '/'
+    | '/bmr'
+    | '/calorie-deficit'
+    | '/macros'
+    | '/protein'
+    | '/tdee'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bmr' | '/calorie-deficit' | '/macros' | '/tdee'
-  id: '__root__' | '/' | '/bmr' | '/calorie-deficit' | '/macros' | '/tdee'
+  to: '/' | '/bmr' | '/calorie-deficit' | '/macros' | '/protein' | '/tdee'
+  id:
+    | '__root__'
+    | '/'
+    | '/bmr'
+    | '/calorie-deficit'
+    | '/macros'
+    | '/protein'
+    | '/tdee'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +98,7 @@ export interface RootRouteChildren {
   BmrRoute: typeof BmrRoute
   CalorieDeficitRoute: typeof CalorieDeficitRoute
   MacrosRoute: typeof MacrosRoute
+  ProteinRoute: typeof ProteinRoute
   TdeeRoute: typeof TdeeRoute
 }
 
@@ -86,6 +109,13 @@ declare module '@tanstack/react-router' {
       path: '/tdee'
       fullPath: '/tdee'
       preLoaderRoute: typeof TdeeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/protein': {
+      id: '/protein'
+      path: '/protein'
+      fullPath: '/protein'
+      preLoaderRoute: typeof ProteinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/macros': {
@@ -124,6 +154,7 @@ const rootRouteChildren: RootRouteChildren = {
   BmrRoute: BmrRoute,
   CalorieDeficitRoute: CalorieDeficitRoute,
   MacrosRoute: MacrosRoute,
+  ProteinRoute: ProteinRoute,
   TdeeRoute: TdeeRoute,
 }
 export const routeTree = rootRouteImport
