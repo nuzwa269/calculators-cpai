@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WaterIntakeRouteImport } from './routes/water-intake'
 import { Route as WaistToHipRatioRouteImport } from './routes/waist-to-hip-ratio'
 import { Route as TdeeRouteImport } from './routes/tdee'
+import { Route as ReverseDietRouteImport } from './routes/reverse-diet'
 import { Route as ProteinRouteImport } from './routes/protein'
 import { Route as PlateauFixRouteImport } from './routes/plateau-fix'
 import { Route as OneRepMaxRouteImport } from './routes/one-rep-max'
@@ -38,6 +39,11 @@ const WaistToHipRatioRoute = WaistToHipRatioRouteImport.update({
 const TdeeRoute = TdeeRouteImport.update({
   id: '/tdee',
   path: '/tdee',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReverseDietRoute = ReverseDietRouteImport.update({
+  id: '/reverse-diet',
+  path: '/reverse-diet',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProteinRoute = ProteinRouteImport.update({
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/one-rep-max': typeof OneRepMaxRoute
   '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
+  '/reverse-diet': typeof ReverseDietRoute
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
@@ -131,6 +138,7 @@ export interface FileRoutesByTo {
   '/one-rep-max': typeof OneRepMaxRoute
   '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
+  '/reverse-diet': typeof ReverseDietRoute
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
@@ -149,6 +157,7 @@ export interface FileRoutesById {
   '/one-rep-max': typeof OneRepMaxRoute
   '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
+  '/reverse-diet': typeof ReverseDietRoute
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
@@ -168,6 +177,7 @@ export interface FileRouteTypes {
     | '/one-rep-max'
     | '/plateau-fix'
     | '/protein'
+    | '/reverse-diet'
     | '/tdee'
     | '/waist-to-hip-ratio'
     | '/water-intake'
@@ -185,6 +195,7 @@ export interface FileRouteTypes {
     | '/one-rep-max'
     | '/plateau-fix'
     | '/protein'
+    | '/reverse-diet'
     | '/tdee'
     | '/waist-to-hip-ratio'
     | '/water-intake'
@@ -202,6 +213,7 @@ export interface FileRouteTypes {
     | '/one-rep-max'
     | '/plateau-fix'
     | '/protein'
+    | '/reverse-diet'
     | '/tdee'
     | '/waist-to-hip-ratio'
     | '/water-intake'
@@ -220,6 +232,7 @@ export interface RootRouteChildren {
   OneRepMaxRoute: typeof OneRepMaxRoute
   PlateauFixRoute: typeof PlateauFixRoute
   ProteinRoute: typeof ProteinRoute
+  ReverseDietRoute: typeof ReverseDietRoute
   TdeeRoute: typeof TdeeRoute
   WaistToHipRatioRoute: typeof WaistToHipRatioRoute
   WaterIntakeRoute: typeof WaterIntakeRoute
@@ -246,6 +259,13 @@ declare module '@tanstack/react-router' {
       path: '/tdee'
       fullPath: '/tdee'
       preLoaderRoute: typeof TdeeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reverse-diet': {
+      id: '/reverse-diet'
+      path: '/reverse-diet'
+      fullPath: '/reverse-diet'
+      preLoaderRoute: typeof ReverseDietRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/protein': {
@@ -348,6 +368,7 @@ const rootRouteChildren: RootRouteChildren = {
   OneRepMaxRoute: OneRepMaxRoute,
   PlateauFixRoute: PlateauFixRoute,
   ProteinRoute: ProteinRoute,
+  ReverseDietRoute: ReverseDietRoute,
   TdeeRoute: TdeeRoute,
   WaistToHipRatioRoute: WaistToHipRatioRoute,
   WaterIntakeRoute: WaterIntakeRoute,
