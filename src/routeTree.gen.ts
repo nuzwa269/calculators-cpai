@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WaterIntakeRouteImport } from './routes/water-intake'
+import { Route as WaistToHipRatioRouteImport } from './routes/waist-to-hip-ratio'
 import { Route as TdeeRouteImport } from './routes/tdee'
 import { Route as ProteinRouteImport } from './routes/protein'
 import { Route as MacrosRouteImport } from './routes/macros'
@@ -22,6 +23,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const WaterIntakeRoute = WaterIntakeRouteImport.update({
   id: '/water-intake',
   path: '/water-intake',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WaistToHipRatioRoute = WaistToHipRatioRouteImport.update({
+  id: '/waist-to-hip-ratio',
+  path: '/waist-to-hip-ratio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TdeeRoute = TdeeRouteImport.update({
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
+  '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
+  '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
+  '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/macros'
     | '/protein'
     | '/tdee'
+    | '/waist-to-hip-ratio'
     | '/water-intake'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/macros'
     | '/protein'
     | '/tdee'
+    | '/waist-to-hip-ratio'
     | '/water-intake'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/macros'
     | '/protein'
     | '/tdee'
+    | '/waist-to-hip-ratio'
     | '/water-intake'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   MacrosRoute: typeof MacrosRoute
   ProteinRoute: typeof ProteinRoute
   TdeeRoute: typeof TdeeRoute
+  WaistToHipRatioRoute: typeof WaistToHipRatioRoute
   WaterIntakeRoute: typeof WaterIntakeRoute
 }
 
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/water-intake'
       fullPath: '/water-intake'
       preLoaderRoute: typeof WaterIntakeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/waist-to-hip-ratio': {
+      id: '/waist-to-hip-ratio'
+      path: '/waist-to-hip-ratio'
+      fullPath: '/waist-to-hip-ratio'
+      preLoaderRoute: typeof WaistToHipRatioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tdee': {
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   MacrosRoute: MacrosRoute,
   ProteinRoute: ProteinRoute,
   TdeeRoute: TdeeRoute,
+  WaistToHipRatioRoute: WaistToHipRatioRoute,
   WaterIntakeRoute: WaterIntakeRoute,
 }
 export const routeTree = rootRouteImport
