@@ -724,4 +724,51 @@ export const CALCULATOR_CONTENT: Record<string, CalcContent> = {
     cta: cta("nutrition"),
     disclaimer: DEFAULT_DISCLAIMER,
   },
+
+  ffmi: {
+    eyebrow: "FREE FFMI CALCULATOR",
+    headline: "How Muscular Are You for Your Height?",
+    hook: "Fat-Free Mass Index (FFMI) measures the muscle you carry relative to your height — a far better muscularity benchmark than BMI, which can't tell muscle from fat.",
+    features: [
+      { label: "Raw and normalized FFMI" },
+      { label: "Male and female scoring" },
+      { label: "Uses body fat %" },
+    ],
+    meaning: {
+      title: "What your FFMI score really tells you",
+      paragraphs: [
+        "FFMI takes your lean body mass (weight minus fat) and divides it by your height squared. Because it strips out fat, a lean lifter and a heavier untrained person can share the same BMI but land on completely different FFMI scores.",
+        "The normalized value adjusts the number to a 1.8 m reference height so tall and short lifters can be compared on the same scale. Untrained men usually sit around 18–20, well-trained natural lifters reach 22–24, and a normalized FFMI persistently above ~25 (or ~22 for women) is generally considered the natural ceiling.",
+      ],
+    },
+    benefits: {
+      title: "Why lifters use FFMI over BMI",
+      items: [
+        { title: "A fair muscle benchmark", body: "It rewards lean mass instead of penalising it, so muscular builds aren't miscategorised as overweight." },
+        { title: "Track long-term progress", body: "As you gain muscle and control body fat, FFMI climbs — a cleaner signal than scale weight alone." },
+        { title: "Set realistic goals", body: "Knowing the natural ceiling helps you plan bulks, cuts, and years of training with sane expectations." },
+      ],
+    },
+    faq: [
+      { q: "What FFMI is considered good?", a: "For men: 18–20 average, 20–22 above average, 22–24 well-trained, and 25 is the widely cited natural ceiling. For women, subtract about 3 points across the scale." },
+      { q: "Why do I need body fat % to calculate FFMI?", a: "FFMI is built on lean body mass, and LBM = weight × (1 − body fat%). Without a body fat estimate the formula can't separate muscle from fat." },
+      { q: "Where do I get my body fat percentage?", a: "Use our US Navy Body Fat calculator with tape measurements for a free estimate, or a DEXA/InBody scan for a more precise reading." },
+      { q: "Is FFMI above 25 always suspicious?", a: "Not always — genetics, measurement error, and rounding can push it slightly higher. But sustained values well above 25 in men (or 22 in women) are rare without exceptional genetics or performance enhancers." },
+      { q: "FFMI vs BMI — which should I use?", a: "Use BMI as a broad health screen for the general population. Use FFMI when you train seriously and want to judge muscularity, since BMI treats muscle and fat the same." },
+    ],
+    teaser: {
+      eyebrow: "Free estimate",
+      title: "See your muscularity score",
+      body: "Enter weight, height, and body fat % to get your raw FFMI, normalized FFMI, and where you sit on the muscularity scale.",
+      inputLabel: "Input options",
+      inputValue: "kg, cm, body fat %",
+      goodForLabel: "Good for",
+      goodForValue: "Lifters tracking real muscle",
+      insightTitle: "Coach insight",
+      insightBody: "Chase a rising FFMI at a steady body fat — that's real muscle growth, not scale-weight illusions.",
+      ctaLabel: "Build my muscle plan",
+    },
+    cta: cta("muscle-building"),
+    disclaimer: DEFAULT_DISCLAIMER,
+  },
 };
