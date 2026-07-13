@@ -13,6 +13,7 @@ import { Route as WaterIntakeRouteImport } from './routes/water-intake'
 import { Route as WaistToHipRatioRouteImport } from './routes/waist-to-hip-ratio'
 import { Route as TdeeRouteImport } from './routes/tdee'
 import { Route as ProteinRouteImport } from './routes/protein'
+import { Route as PlateauFixRouteImport } from './routes/plateau-fix'
 import { Route as OneRepMaxRouteImport } from './routes/one-rep-max'
 import { Route as MacrosRouteImport } from './routes/macros'
 import { Route as LeanBulkRouteImport } from './routes/lean-bulk'
@@ -42,6 +43,11 @@ const TdeeRoute = TdeeRouteImport.update({
 const ProteinRoute = ProteinRouteImport.update({
   id: '/protein',
   path: '/protein',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlateauFixRoute = PlateauFixRouteImport.update({
+  id: '/plateau-fix',
+  path: '/plateau-fix',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OneRepMaxRoute = OneRepMaxRouteImport.update({
@@ -106,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/lean-bulk': typeof LeanBulkRoute
   '/macros': typeof MacrosRoute
   '/one-rep-max': typeof OneRepMaxRoute
+  '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
@@ -122,6 +129,7 @@ export interface FileRoutesByTo {
   '/lean-bulk': typeof LeanBulkRoute
   '/macros': typeof MacrosRoute
   '/one-rep-max': typeof OneRepMaxRoute
+  '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
@@ -139,6 +147,7 @@ export interface FileRoutesById {
   '/lean-bulk': typeof LeanBulkRoute
   '/macros': typeof MacrosRoute
   '/one-rep-max': typeof OneRepMaxRoute
+  '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
@@ -157,6 +166,7 @@ export interface FileRouteTypes {
     | '/lean-bulk'
     | '/macros'
     | '/one-rep-max'
+    | '/plateau-fix'
     | '/protein'
     | '/tdee'
     | '/waist-to-hip-ratio'
@@ -173,6 +183,7 @@ export interface FileRouteTypes {
     | '/lean-bulk'
     | '/macros'
     | '/one-rep-max'
+    | '/plateau-fix'
     | '/protein'
     | '/tdee'
     | '/waist-to-hip-ratio'
@@ -189,6 +200,7 @@ export interface FileRouteTypes {
     | '/lean-bulk'
     | '/macros'
     | '/one-rep-max'
+    | '/plateau-fix'
     | '/protein'
     | '/tdee'
     | '/waist-to-hip-ratio'
@@ -206,6 +218,7 @@ export interface RootRouteChildren {
   LeanBulkRoute: typeof LeanBulkRoute
   MacrosRoute: typeof MacrosRoute
   OneRepMaxRoute: typeof OneRepMaxRoute
+  PlateauFixRoute: typeof PlateauFixRoute
   ProteinRoute: typeof ProteinRoute
   TdeeRoute: typeof TdeeRoute
   WaistToHipRatioRoute: typeof WaistToHipRatioRoute
@@ -240,6 +253,13 @@ declare module '@tanstack/react-router' {
       path: '/protein'
       fullPath: '/protein'
       preLoaderRoute: typeof ProteinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plateau-fix': {
+      id: '/plateau-fix'
+      path: '/plateau-fix'
+      fullPath: '/plateau-fix'
+      preLoaderRoute: typeof PlateauFixRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/one-rep-max': {
@@ -326,6 +346,7 @@ const rootRouteChildren: RootRouteChildren = {
   LeanBulkRoute: LeanBulkRoute,
   MacrosRoute: MacrosRoute,
   OneRepMaxRoute: OneRepMaxRoute,
+  PlateauFixRoute: PlateauFixRoute,
   ProteinRoute: ProteinRoute,
   TdeeRoute: TdeeRoute,
   WaistToHipRatioRoute: WaistToHipRatioRoute,
