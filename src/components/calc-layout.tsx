@@ -73,7 +73,7 @@ export function CalcLayout({
     { label: "Instant results" },
     { label: "Coach-designed" },
   ];
-  const faqItems = faq ?? content?.faq ?? [];
+  const faqItems = content?.faq ?? faq ?? [];
 
   return (
     <div className="min-h-screen bg-background">
