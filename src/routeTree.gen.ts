@@ -27,7 +27,6 @@ import { Route as CalorieDeficitRouteImport } from './routes/calorie-deficit'
 import { Route as BodyRecompositionRouteImport } from './routes/body-recomposition'
 import { Route as BodyFatRouteImport } from './routes/body-fat'
 import { Route as BmrRouteImport } from './routes/bmr'
-import { Route as IndexRouteImport } from './routes/index'
 
 const WaterIntakeRoute = WaterIntakeRouteImport.update({
   id: '/water-intake',
@@ -119,14 +118,8 @@ const BmrRoute = BmrRouteImport.update({
   path: '/bmr',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/bmr': typeof BmrRoute
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
@@ -147,7 +140,6 @@ export interface FileRoutesByFullPath {
   '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/bmr': typeof BmrRoute
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
@@ -169,7 +161,6 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/bmr': typeof BmrRoute
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
@@ -192,7 +183,6 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/bmr'
     | '/body-fat'
     | '/body-recomposition'
@@ -213,7 +203,6 @@ export interface FileRouteTypes {
     | '/water-intake'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/bmr'
     | '/body-fat'
     | '/body-recomposition'
@@ -234,7 +223,6 @@ export interface FileRouteTypes {
     | '/water-intake'
   id:
     | '__root__'
-    | '/'
     | '/bmr'
     | '/body-fat'
     | '/body-recomposition'
@@ -256,7 +244,6 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   BmrRoute: typeof BmrRoute
   BodyFatRoute: typeof BodyFatRoute
   BodyRecompositionRoute: typeof BodyRecompositionRoute
@@ -405,18 +392,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BmrRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   BmrRoute: BmrRoute,
   BodyFatRoute: BodyFatRoute,
   BodyRecompositionRoute: BodyRecompositionRoute,
