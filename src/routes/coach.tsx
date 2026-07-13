@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
+import { Calculator, Flame, Beef, Droplet, Ruler, Percent, Activity } from "lucide-react";
 
 const TITLE = "Amna Wasim — Certified Nutritionist | CoachProAI";
 const DESC =
@@ -66,6 +67,19 @@ const SERVICES: { title: string; body: string }[] = [
   { title: "Healthy recipes", body: "Simple, tasty recipes matched to your plan — no bland dieting food." },
   { title: "Healthy lifestyle coaching", body: "Sleep, stress, and habit support so the nutrition actually sticks." },
   { title: "Physical activity guidance", body: "Movement plans that fit real schedules and any starting fitness level." },
+  { title: "Thyroid nutrition", body: "Iodine, selenium and energy-balanced plans for hypothyroid, Hashimoto and hyperthyroid — designed to work alongside your medication." },
+  { title: "Pregnancy & lactation nutrition", body: "Trimester-based prenatal and breastfeeding plans focused on folate, iron, calcium and safe calorie intake for mother and baby." },
+  { title: "Gut health & IBS nutrition", body: "Low-FODMAP and gut-friendly plans for bloating, IBS, acid reflux and food sensitivities." },
+];
+
+const PAIR_TOOLS: { title: string; to: string; Icon: typeof Calculator }[] = [
+  { title: "TDEE", to: "/tdee", Icon: Flame },
+  { title: "BMR", to: "/bmr", Icon: Activity },
+  { title: "Macros", to: "/macros", Icon: Calculator },
+  { title: "Protein", to: "/protein", Icon: Beef },
+  { title: "Calorie Deficit", to: "/calorie-deficit", Icon: Droplet },
+  { title: "Waist-to-Hip Ratio", to: "/waist-to-hip-ratio", Icon: Ruler },
+  { title: "Body Fat %", to: "/body-fat", Icon: Percent },
 ];
 
 const VALUES = [
@@ -158,7 +172,7 @@ function CoachPage() {
               combined program for you.
             </p>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {SERVICES.map((s) => (
               <article
                 key={s.title}
@@ -167,6 +181,32 @@ function CoachPage() {
                 <h3 className="text-sm font-semibold text-neutral-950">{s.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-neutral-600">{s.body}</p>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tools that pair with your plan */}
+      <section id="tools" className="scroll-mt-20 border-t border-border/60 bg-background">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              Tools that pair with your plan
+            </h2>
+            <p className="mt-3 text-[15px] text-neutral-600">
+              Free calculators visitors most often use before starting a service — try one, then request your full personalized plan.
+            </p>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-2.5">
+            {PAIR_TOOLS.map(({ title, to, Icon }) => (
+              <Link
+                key={to}
+                to={to}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:border-orange-500 hover:text-orange-700"
+              >
+                <Icon className="h-4 w-4" aria-hidden />
+                {title}
+              </Link>
             ))}
           </div>
         </div>
