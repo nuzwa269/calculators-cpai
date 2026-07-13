@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WaterIntakeRouteImport } from './routes/water-intake'
 import { Route as TdeeRouteImport } from './routes/tdee'
 import { Route as ProteinRouteImport } from './routes/protein'
 import { Route as MacrosRouteImport } from './routes/macros'
@@ -16,6 +17,11 @@ import { Route as CalorieDeficitRouteImport } from './routes/calorie-deficit'
 import { Route as BmrRouteImport } from './routes/bmr'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WaterIntakeRoute = WaterIntakeRouteImport.update({
+  id: '/water-intake',
+  path: '/water-intake',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TdeeRoute = TdeeRouteImport.update({
   id: '/tdee',
   path: '/tdee',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
+  '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
+  '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
+  '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +90,16 @@ export interface FileRouteTypes {
     | '/macros'
     | '/protein'
     | '/tdee'
+    | '/water-intake'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bmr' | '/calorie-deficit' | '/macros' | '/protein' | '/tdee'
+  to:
+    | '/'
+    | '/bmr'
+    | '/calorie-deficit'
+    | '/macros'
+    | '/protein'
+    | '/tdee'
+    | '/water-intake'
   id:
     | '__root__'
     | '/'
@@ -91,6 +108,7 @@ export interface FileRouteTypes {
     | '/macros'
     | '/protein'
     | '/tdee'
+    | '/water-intake'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,10 +118,18 @@ export interface RootRouteChildren {
   MacrosRoute: typeof MacrosRoute
   ProteinRoute: typeof ProteinRoute
   TdeeRoute: typeof TdeeRoute
+  WaterIntakeRoute: typeof WaterIntakeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/water-intake': {
+      id: '/water-intake'
+      path: '/water-intake'
+      fullPath: '/water-intake'
+      preLoaderRoute: typeof WaterIntakeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tdee': {
       id: '/tdee'
       path: '/tdee'
@@ -156,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   MacrosRoute: MacrosRoute,
   ProteinRoute: ProteinRoute,
   TdeeRoute: TdeeRoute,
+  WaterIntakeRoute: WaterIntakeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
