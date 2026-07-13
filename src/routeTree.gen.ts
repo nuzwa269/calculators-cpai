@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TdeeRouteImport } from './routes/tdee'
+import { Route as MacrosRouteImport } from './routes/macros'
+import { Route as CalorieDeficitRouteImport } from './routes/calorie-deficit'
+import { Route as BmrRouteImport } from './routes/bmr'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TdeeRoute = TdeeRouteImport.update({
+  id: '/tdee',
+  path: '/tdee',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MacrosRoute = MacrosRouteImport.update({
+  id: '/macros',
+  path: '/macros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalorieDeficitRoute = CalorieDeficitRouteImport.update({
+  id: '/calorie-deficit',
+  path: '/calorie-deficit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BmrRoute = BmrRouteImport.update({
+  id: '/bmr',
+  path: '/bmr',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,72 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bmr': typeof BmrRoute
+  '/calorie-deficit': typeof CalorieDeficitRoute
+  '/macros': typeof MacrosRoute
+  '/tdee': typeof TdeeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bmr': typeof BmrRoute
+  '/calorie-deficit': typeof CalorieDeficitRoute
+  '/macros': typeof MacrosRoute
+  '/tdee': typeof TdeeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bmr': typeof BmrRoute
+  '/calorie-deficit': typeof CalorieDeficitRoute
+  '/macros': typeof MacrosRoute
+  '/tdee': typeof TdeeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/bmr' | '/calorie-deficit' | '/macros' | '/tdee'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/bmr' | '/calorie-deficit' | '/macros' | '/tdee'
+  id: '__root__' | '/' | '/bmr' | '/calorie-deficit' | '/macros' | '/tdee'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BmrRoute: typeof BmrRoute
+  CalorieDeficitRoute: typeof CalorieDeficitRoute
+  MacrosRoute: typeof MacrosRoute
+  TdeeRoute: typeof TdeeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tdee': {
+      id: '/tdee'
+      path: '/tdee'
+      fullPath: '/tdee'
+      preLoaderRoute: typeof TdeeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/macros': {
+      id: '/macros'
+      path: '/macros'
+      fullPath: '/macros'
+      preLoaderRoute: typeof MacrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calorie-deficit': {
+      id: '/calorie-deficit'
+      path: '/calorie-deficit'
+      fullPath: '/calorie-deficit'
+      preLoaderRoute: typeof CalorieDeficitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bmr': {
+      id: '/bmr'
+      path: '/bmr'
+      fullPath: '/bmr'
+      preLoaderRoute: typeof BmrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +121,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BmrRoute: BmrRoute,
+  CalorieDeficitRoute: CalorieDeficitRoute,
+  MacrosRoute: MacrosRoute,
+  TdeeRoute: TdeeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
