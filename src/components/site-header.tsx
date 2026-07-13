@@ -5,12 +5,10 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground font-bold shadow-elegant">
-            C
-          </div>
+          <img src="/logo.png" alt="CoachProAI" className="h-9 w-9 rounded-lg" />
           <div className="flex flex-col leading-tight">
-            <span className="text-sm font-bold text-foreground">CoachProAI</span>
-            <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+            <span className="text-sm font-semibold tracking-tight text-foreground">CoachProAI</span>
+            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
               Calculators
             </span>
           </div>
