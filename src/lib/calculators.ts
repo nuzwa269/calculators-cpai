@@ -170,6 +170,26 @@ export function leanBodyMass(sex: Sex, weightKg: number, heightCm: number) {
   return { lbm, bodyFatKg, bodyFatPct };
 }
 
+// ---- FFMI (Fat-Free Mass Index) ----
+// FFMI = LBM(kg) / height(m)^2. Normalized FFMI adjusts to 1.8m reference.
+// Natural (drug-free) ceiling is generally cited around 25 for men.
+export function ffmi(sex: Sex, weightKg: number, heightCm: number, bodyFatPct: number) {
+  const bf = Math.max(3, Math.min(60, bodyFatPct));
+  const lbmKg = weightKg * (1 - bf / 100);
+  const heightM = heightCm / 100;
+  const raw = lbmKg / (heightM * heightM);
+  const normalized = raw + 6.1 * (1.8 - heightM);
+  let level: "below_average" | "average" | "above_average" | "muscular" | "very_muscular" | "elite";
+  const male = sex === "male";
+  if (normalized < (male ? 18 : 15)) level = "below_average";
+  else if (normalized < (male ? 20 : 17)) level = "average";
+  else if (normalized < (male ? 22 : 19)) level = "above_average";
+  else if (normalized < (male ? 23.5 : 20.5)) level = "muscular";
+  else if (normalized < (male ? 25 : 22)) level = "very_muscular";
+  else level = "elite";
+  return { lbmKg, ffmi: raw, normalized, level };
+}
+
 // ---- Water intake ----
 export type Climate = "cool" | "moderate" | "hot";
 export function waterIntake(weightKg: number, activityMin: number, climate: Climate) {
