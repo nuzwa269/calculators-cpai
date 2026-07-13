@@ -9,8 +9,104 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WaterIntakeRouteImport } from './routes/water-intake'
+import { Route as WaistToHipRatioRouteImport } from './routes/waist-to-hip-ratio'
+import { Route as TdeeRouteImport } from './routes/tdee'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ReverseDietRouteImport } from './routes/reverse-diet'
+import { Route as ProteinRouteImport } from './routes/protein'
+import { Route as PlateauFixRouteImport } from './routes/plateau-fix'
+import { Route as OneRepMaxRouteImport } from './routes/one-rep-max'
+import { Route as MacrosRouteImport } from './routes/macros'
+import { Route as LeanBulkRouteImport } from './routes/lean-bulk'
+import { Route as LeanBodyMassRouteImport } from './routes/lean-body-mass'
+import { Route as FatLossTimelineRouteImport } from './routes/fat-loss-timeline'
+import { Route as CalorieDeficitRouteImport } from './routes/calorie-deficit'
+import { Route as BodyRecompositionRouteImport } from './routes/body-recomposition'
+import { Route as BodyFatRouteImport } from './routes/body-fat'
+import { Route as BmrRouteImport } from './routes/bmr'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WaterIntakeRoute = WaterIntakeRouteImport.update({
+  id: '/water-intake',
+  path: '/water-intake',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WaistToHipRatioRoute = WaistToHipRatioRouteImport.update({
+  id: '/waist-to-hip-ratio',
+  path: '/waist-to-hip-ratio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TdeeRoute = TdeeRouteImport.update({
+  id: '/tdee',
+  path: '/tdee',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReverseDietRoute = ReverseDietRouteImport.update({
+  id: '/reverse-diet',
+  path: '/reverse-diet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProteinRoute = ProteinRouteImport.update({
+  id: '/protein',
+  path: '/protein',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlateauFixRoute = PlateauFixRouteImport.update({
+  id: '/plateau-fix',
+  path: '/plateau-fix',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OneRepMaxRoute = OneRepMaxRouteImport.update({
+  id: '/one-rep-max',
+  path: '/one-rep-max',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MacrosRoute = MacrosRouteImport.update({
+  id: '/macros',
+  path: '/macros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeanBulkRoute = LeanBulkRouteImport.update({
+  id: '/lean-bulk',
+  path: '/lean-bulk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeanBodyMassRoute = LeanBodyMassRouteImport.update({
+  id: '/lean-body-mass',
+  path: '/lean-body-mass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FatLossTimelineRoute = FatLossTimelineRouteImport.update({
+  id: '/fat-loss-timeline',
+  path: '/fat-loss-timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalorieDeficitRoute = CalorieDeficitRouteImport.update({
+  id: '/calorie-deficit',
+  path: '/calorie-deficit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BodyRecompositionRoute = BodyRecompositionRouteImport.update({
+  id: '/body-recomposition',
+  path: '/body-recomposition',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BodyFatRoute = BodyFatRouteImport.update({
+  id: '/body-fat',
+  path: '/body-fat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BmrRoute = BmrRouteImport.update({
+  id: '/bmr',
+  path: '/bmr',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +115,256 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bmr': typeof BmrRoute
+  '/body-fat': typeof BodyFatRoute
+  '/body-recomposition': typeof BodyRecompositionRoute
+  '/calorie-deficit': typeof CalorieDeficitRoute
+  '/fat-loss-timeline': typeof FatLossTimelineRoute
+  '/lean-body-mass': typeof LeanBodyMassRoute
+  '/lean-bulk': typeof LeanBulkRoute
+  '/macros': typeof MacrosRoute
+  '/one-rep-max': typeof OneRepMaxRoute
+  '/plateau-fix': typeof PlateauFixRoute
+  '/protein': typeof ProteinRoute
+  '/reverse-diet': typeof ReverseDietRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tdee': typeof TdeeRoute
+  '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
+  '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bmr': typeof BmrRoute
+  '/body-fat': typeof BodyFatRoute
+  '/body-recomposition': typeof BodyRecompositionRoute
+  '/calorie-deficit': typeof CalorieDeficitRoute
+  '/fat-loss-timeline': typeof FatLossTimelineRoute
+  '/lean-body-mass': typeof LeanBodyMassRoute
+  '/lean-bulk': typeof LeanBulkRoute
+  '/macros': typeof MacrosRoute
+  '/one-rep-max': typeof OneRepMaxRoute
+  '/plateau-fix': typeof PlateauFixRoute
+  '/protein': typeof ProteinRoute
+  '/reverse-diet': typeof ReverseDietRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tdee': typeof TdeeRoute
+  '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
+  '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bmr': typeof BmrRoute
+  '/body-fat': typeof BodyFatRoute
+  '/body-recomposition': typeof BodyRecompositionRoute
+  '/calorie-deficit': typeof CalorieDeficitRoute
+  '/fat-loss-timeline': typeof FatLossTimelineRoute
+  '/lean-body-mass': typeof LeanBodyMassRoute
+  '/lean-bulk': typeof LeanBulkRoute
+  '/macros': typeof MacrosRoute
+  '/one-rep-max': typeof OneRepMaxRoute
+  '/plateau-fix': typeof PlateauFixRoute
+  '/protein': typeof ProteinRoute
+  '/reverse-diet': typeof ReverseDietRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tdee': typeof TdeeRoute
+  '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
+  '/water-intake': typeof WaterIntakeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bmr'
+    | '/body-fat'
+    | '/body-recomposition'
+    | '/calorie-deficit'
+    | '/fat-loss-timeline'
+    | '/lean-body-mass'
+    | '/lean-bulk'
+    | '/macros'
+    | '/one-rep-max'
+    | '/plateau-fix'
+    | '/protein'
+    | '/reverse-diet'
+    | '/sitemap.xml'
+    | '/tdee'
+    | '/waist-to-hip-ratio'
+    | '/water-intake'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bmr'
+    | '/body-fat'
+    | '/body-recomposition'
+    | '/calorie-deficit'
+    | '/fat-loss-timeline'
+    | '/lean-body-mass'
+    | '/lean-bulk'
+    | '/macros'
+    | '/one-rep-max'
+    | '/plateau-fix'
+    | '/protein'
+    | '/reverse-diet'
+    | '/sitemap.xml'
+    | '/tdee'
+    | '/waist-to-hip-ratio'
+    | '/water-intake'
+  id:
+    | '__root__'
+    | '/'
+    | '/bmr'
+    | '/body-fat'
+    | '/body-recomposition'
+    | '/calorie-deficit'
+    | '/fat-loss-timeline'
+    | '/lean-body-mass'
+    | '/lean-bulk'
+    | '/macros'
+    | '/one-rep-max'
+    | '/plateau-fix'
+    | '/protein'
+    | '/reverse-diet'
+    | '/sitemap.xml'
+    | '/tdee'
+    | '/waist-to-hip-ratio'
+    | '/water-intake'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BmrRoute: typeof BmrRoute
+  BodyFatRoute: typeof BodyFatRoute
+  BodyRecompositionRoute: typeof BodyRecompositionRoute
+  CalorieDeficitRoute: typeof CalorieDeficitRoute
+  FatLossTimelineRoute: typeof FatLossTimelineRoute
+  LeanBodyMassRoute: typeof LeanBodyMassRoute
+  LeanBulkRoute: typeof LeanBulkRoute
+  MacrosRoute: typeof MacrosRoute
+  OneRepMaxRoute: typeof OneRepMaxRoute
+  PlateauFixRoute: typeof PlateauFixRoute
+  ProteinRoute: typeof ProteinRoute
+  ReverseDietRoute: typeof ReverseDietRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TdeeRoute: typeof TdeeRoute
+  WaistToHipRatioRoute: typeof WaistToHipRatioRoute
+  WaterIntakeRoute: typeof WaterIntakeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/water-intake': {
+      id: '/water-intake'
+      path: '/water-intake'
+      fullPath: '/water-intake'
+      preLoaderRoute: typeof WaterIntakeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/waist-to-hip-ratio': {
+      id: '/waist-to-hip-ratio'
+      path: '/waist-to-hip-ratio'
+      fullPath: '/waist-to-hip-ratio'
+      preLoaderRoute: typeof WaistToHipRatioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tdee': {
+      id: '/tdee'
+      path: '/tdee'
+      fullPath: '/tdee'
+      preLoaderRoute: typeof TdeeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reverse-diet': {
+      id: '/reverse-diet'
+      path: '/reverse-diet'
+      fullPath: '/reverse-diet'
+      preLoaderRoute: typeof ReverseDietRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/protein': {
+      id: '/protein'
+      path: '/protein'
+      fullPath: '/protein'
+      preLoaderRoute: typeof ProteinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plateau-fix': {
+      id: '/plateau-fix'
+      path: '/plateau-fix'
+      fullPath: '/plateau-fix'
+      preLoaderRoute: typeof PlateauFixRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/one-rep-max': {
+      id: '/one-rep-max'
+      path: '/one-rep-max'
+      fullPath: '/one-rep-max'
+      preLoaderRoute: typeof OneRepMaxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/macros': {
+      id: '/macros'
+      path: '/macros'
+      fullPath: '/macros'
+      preLoaderRoute: typeof MacrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lean-bulk': {
+      id: '/lean-bulk'
+      path: '/lean-bulk'
+      fullPath: '/lean-bulk'
+      preLoaderRoute: typeof LeanBulkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lean-body-mass': {
+      id: '/lean-body-mass'
+      path: '/lean-body-mass'
+      fullPath: '/lean-body-mass'
+      preLoaderRoute: typeof LeanBodyMassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fat-loss-timeline': {
+      id: '/fat-loss-timeline'
+      path: '/fat-loss-timeline'
+      fullPath: '/fat-loss-timeline'
+      preLoaderRoute: typeof FatLossTimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calorie-deficit': {
+      id: '/calorie-deficit'
+      path: '/calorie-deficit'
+      fullPath: '/calorie-deficit'
+      preLoaderRoute: typeof CalorieDeficitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/body-recomposition': {
+      id: '/body-recomposition'
+      path: '/body-recomposition'
+      fullPath: '/body-recomposition'
+      preLoaderRoute: typeof BodyRecompositionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/body-fat': {
+      id: '/body-fat'
+      path: '/body-fat'
+      fullPath: '/body-fat'
+      preLoaderRoute: typeof BodyFatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bmr': {
+      id: '/bmr'
+      path: '/bmr'
+      fullPath: '/bmr'
+      preLoaderRoute: typeof BmrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +377,22 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BmrRoute: BmrRoute,
+  BodyFatRoute: BodyFatRoute,
+  BodyRecompositionRoute: BodyRecompositionRoute,
+  CalorieDeficitRoute: CalorieDeficitRoute,
+  FatLossTimelineRoute: FatLossTimelineRoute,
+  LeanBodyMassRoute: LeanBodyMassRoute,
+  LeanBulkRoute: LeanBulkRoute,
+  MacrosRoute: MacrosRoute,
+  OneRepMaxRoute: OneRepMaxRoute,
+  PlateauFixRoute: PlateauFixRoute,
+  ProteinRoute: ProteinRoute,
+  ReverseDietRoute: ReverseDietRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TdeeRoute: TdeeRoute,
+  WaistToHipRatioRoute: WaistToHipRatioRoute,
+  WaterIntakeRoute: WaterIntakeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
