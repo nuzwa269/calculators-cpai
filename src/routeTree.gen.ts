@@ -13,6 +13,7 @@ import { Route as WaterIntakeRouteImport } from './routes/water-intake'
 import { Route as TdeeRouteImport } from './routes/tdee'
 import { Route as ProteinRouteImport } from './routes/protein'
 import { Route as MacrosRouteImport } from './routes/macros'
+import { Route as LeanBodyMassRouteImport } from './routes/lean-body-mass'
 import { Route as CalorieDeficitRouteImport } from './routes/calorie-deficit'
 import { Route as BodyFatRouteImport } from './routes/body-fat'
 import { Route as BmrRouteImport } from './routes/bmr'
@@ -36,6 +37,11 @@ const ProteinRoute = ProteinRouteImport.update({
 const MacrosRoute = MacrosRouteImport.update({
   id: '/macros',
   path: '/macros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeanBodyMassRoute = LeanBodyMassRouteImport.update({
+  id: '/lean-body-mass',
+  path: '/lean-body-mass',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalorieDeficitRoute = CalorieDeficitRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/bmr': typeof BmrRoute
   '/body-fat': typeof BodyFatRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/lean-body-mass': typeof LeanBodyMassRoute
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/bmr': typeof BmrRoute
   '/body-fat': typeof BodyFatRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/lean-body-mass': typeof LeanBodyMassRoute
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/bmr': typeof BmrRoute
   '/body-fat': typeof BodyFatRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/lean-body-mass': typeof LeanBodyMassRoute
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
   '/tdee': typeof TdeeRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/bmr'
     | '/body-fat'
     | '/calorie-deficit'
+    | '/lean-body-mass'
     | '/macros'
     | '/protein'
     | '/tdee'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/bmr'
     | '/body-fat'
     | '/calorie-deficit'
+    | '/lean-body-mass'
     | '/macros'
     | '/protein'
     | '/tdee'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/bmr'
     | '/body-fat'
     | '/calorie-deficit'
+    | '/lean-body-mass'
     | '/macros'
     | '/protein'
     | '/tdee'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   BmrRoute: typeof BmrRoute
   BodyFatRoute: typeof BodyFatRoute
   CalorieDeficitRoute: typeof CalorieDeficitRoute
+  LeanBodyMassRoute: typeof LeanBodyMassRoute
   MacrosRoute: typeof MacrosRoute
   ProteinRoute: typeof ProteinRoute
   TdeeRoute: typeof TdeeRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/macros'
       fullPath: '/macros'
       preLoaderRoute: typeof MacrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lean-body-mass': {
+      id: '/lean-body-mass'
+      path: '/lean-body-mass'
+      fullPath: '/lean-body-mass'
+      preLoaderRoute: typeof LeanBodyMassRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calorie-deficit': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   BmrRoute: BmrRoute,
   BodyFatRoute: BodyFatRoute,
   CalorieDeficitRoute: CalorieDeficitRoute,
+  LeanBodyMassRoute: LeanBodyMassRoute,
   MacrosRoute: MacrosRoute,
   ProteinRoute: ProteinRoute,
   TdeeRoute: TdeeRoute,
