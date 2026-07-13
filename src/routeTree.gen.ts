@@ -21,6 +21,7 @@ import { Route as MacrosRouteImport } from './routes/macros'
 import { Route as LeanBulkRouteImport } from './routes/lean-bulk'
 import { Route as LeanBodyMassRouteImport } from './routes/lean-body-mass'
 import { Route as FatLossTimelineRouteImport } from './routes/fat-loss-timeline'
+import { Route as CoachRouteImport } from './routes/coach'
 import { Route as CalorieDeficitRouteImport } from './routes/calorie-deficit'
 import { Route as BodyRecompositionRouteImport } from './routes/body-recomposition'
 import { Route as BodyFatRouteImport } from './routes/body-fat'
@@ -87,6 +88,11 @@ const FatLossTimelineRoute = FatLossTimelineRouteImport.update({
   path: '/fat-loss-timeline',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoachRoute = CoachRouteImport.update({
+  id: '/coach',
+  path: '/coach',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CalorieDeficitRoute = CalorieDeficitRouteImport.update({
   id: '/calorie-deficit',
   path: '/calorie-deficit',
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/coach': typeof CoachRoute
   '/fat-loss-timeline': typeof FatLossTimelineRoute
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/lean-bulk': typeof LeanBulkRoute
@@ -138,6 +145,7 @@ export interface FileRoutesByTo {
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/coach': typeof CoachRoute
   '/fat-loss-timeline': typeof FatLossTimelineRoute
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/lean-bulk': typeof LeanBulkRoute
@@ -158,6 +166,7 @@ export interface FileRoutesById {
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/coach': typeof CoachRoute
   '/fat-loss-timeline': typeof FatLossTimelineRoute
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/lean-bulk': typeof LeanBulkRoute
@@ -179,6 +188,7 @@ export interface FileRouteTypes {
     | '/body-fat'
     | '/body-recomposition'
     | '/calorie-deficit'
+    | '/coach'
     | '/fat-loss-timeline'
     | '/lean-body-mass'
     | '/lean-bulk'
@@ -198,6 +208,7 @@ export interface FileRouteTypes {
     | '/body-fat'
     | '/body-recomposition'
     | '/calorie-deficit'
+    | '/coach'
     | '/fat-loss-timeline'
     | '/lean-body-mass'
     | '/lean-bulk'
@@ -217,6 +228,7 @@ export interface FileRouteTypes {
     | '/body-fat'
     | '/body-recomposition'
     | '/calorie-deficit'
+    | '/coach'
     | '/fat-loss-timeline'
     | '/lean-body-mass'
     | '/lean-bulk'
@@ -237,6 +249,7 @@ export interface RootRouteChildren {
   BodyFatRoute: typeof BodyFatRoute
   BodyRecompositionRoute: typeof BodyRecompositionRoute
   CalorieDeficitRoute: typeof CalorieDeficitRoute
+  CoachRoute: typeof CoachRoute
   FatLossTimelineRoute: typeof FatLossTimelineRoute
   LeanBodyMassRoute: typeof LeanBodyMassRoute
   LeanBulkRoute: typeof LeanBulkRoute
@@ -337,6 +350,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FatLossTimelineRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/coach': {
+      id: '/coach'
+      path: '/coach'
+      fullPath: '/coach'
+      preLoaderRoute: typeof CoachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calorie-deficit': {
       id: '/calorie-deficit'
       path: '/calorie-deficit'
@@ -381,6 +401,7 @@ const rootRouteChildren: RootRouteChildren = {
   BodyFatRoute: BodyFatRoute,
   BodyRecompositionRoute: BodyRecompositionRoute,
   CalorieDeficitRoute: CalorieDeficitRoute,
+  CoachRoute: CoachRoute,
   FatLossTimelineRoute: FatLossTimelineRoute,
   LeanBodyMassRoute: LeanBodyMassRoute,
   LeanBulkRoute: LeanBulkRoute,
