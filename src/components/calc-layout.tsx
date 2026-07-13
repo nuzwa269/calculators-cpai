@@ -3,6 +3,7 @@ import { relatedCalculators, type CalcCategory } from "@/lib/calculator-registry
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CALCULATOR_CONTENT } from "@/lib/calculator-content";
+import { Link } from "@tanstack/react-router";
 
 export function Metric({
   label,
@@ -163,12 +164,13 @@ export function CalcLayout({
                       </p>
                     </div>
 
-                    <button
-                      type="button"
+                    <Link
+                      to="/coach"
+                      hash="contact"
                       className="mt-4 w-full rounded-2xl bg-gradient-to-r from-orange-500 to-red-600 px-4 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-opacity hover:opacity-90"
                     >
                       {content.teaser.ctaLabel}
-                    </button>
+                    </Link>
                   </div>
                 </aside>
               )}
@@ -267,15 +269,13 @@ export function CalcLayout({
                 {content.cta.body}
               </p>
               <div className="relative mt-6 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
+                <Link
+                  to="/coach"
+                  hash="contact"
                   className="inline-flex items-center rounded-xl bg-gradient-to-r from-orange-500 to-red-600 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-opacity hover:opacity-90"
                 >
                   {content.cta.primary}
-                </button>
+                </Link>
                 <a
                   href="/"
                   className="inline-flex items-center rounded-xl border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-white/10"
