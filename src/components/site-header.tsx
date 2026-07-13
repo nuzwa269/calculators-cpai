@@ -35,12 +35,19 @@ export function SiteHeader() {
           >
             Training
           </Link>
+          <Link
+            to="/coach"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Coach
+          </Link>
         </nav>
         <Link
-          to="/"
-          className="inline-flex items-center rounded-md border border-border bg-background px-3 py-1.5 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent"
+          to="/coach"
+          hash="contact"
+          className="inline-flex items-center rounded-md bg-gradient-to-r from-orange-500 to-red-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
         >
-          All calculators
+          Book coach
         </Link>
       </div>
     </header>
