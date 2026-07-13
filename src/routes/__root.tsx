@@ -82,16 +82,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "15 free fitness calculators from CoachProAI: TDEE, BMR, macros, protein, body fat, 1RM, water intake, body recomposition and more.",
+          "Free  fitness calculators from CoachProAI: TDEE, BMR, macros, protein, body fat, 1RM, water intake, body recomposition and more.",
       },
       { name: "author", content: "CoachProAI" },
       { property: "og:site_name", content: "CoachProAI Calculators" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "CoachProAI Calculators — Free Fitness, Nutrition & Body Comp Tools" },
+      { name: "twitter:title", content: "CoachProAI Calculators — Free Fitness, Nutrition & Body Comp Tools" },
+      { property: "og:description", content: "Free  fitness calculators from CoachProAI: TDEE, BMR, macros, protein, body fat, 1RM, water intake, body recomposition and more." },
+      { name: "twitter:description", content: "Free  fitness calculators from CoachProAI: TDEE, BMR, macros, protein, body fat, 1RM, water intake, body recomposition and more." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/Al1hEPjYkdWksm7lH8WdJqqyDUt1/social-images/social-1783951629674-IMG_4539.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/Al1hEPjYkdWksm7lH8WdJqqyDUt1/social-images/social-1783951629674-IMG_4539.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
