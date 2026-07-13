@@ -15,6 +15,7 @@ import { Route as TdeeRouteImport } from './routes/tdee'
 import { Route as ProteinRouteImport } from './routes/protein'
 import { Route as MacrosRouteImport } from './routes/macros'
 import { Route as LeanBodyMassRouteImport } from './routes/lean-body-mass'
+import { Route as FatLossTimelineRouteImport } from './routes/fat-loss-timeline'
 import { Route as CalorieDeficitRouteImport } from './routes/calorie-deficit'
 import { Route as BodyRecompositionRouteImport } from './routes/body-recomposition'
 import { Route as BodyFatRouteImport } from './routes/body-fat'
@@ -51,6 +52,11 @@ const LeanBodyMassRoute = LeanBodyMassRouteImport.update({
   path: '/lean-body-mass',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FatLossTimelineRoute = FatLossTimelineRouteImport.update({
+  id: '/fat-loss-timeline',
+  path: '/fat-loss-timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CalorieDeficitRoute = CalorieDeficitRouteImport.update({
   id: '/calorie-deficit',
   path: '/calorie-deficit',
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/fat-loss-timeline': typeof FatLossTimelineRoute
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/fat-loss-timeline': typeof FatLossTimelineRoute
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/body-fat': typeof BodyFatRoute
   '/body-recomposition': typeof BodyRecompositionRoute
   '/calorie-deficit': typeof CalorieDeficitRoute
+  '/fat-loss-timeline': typeof FatLossTimelineRoute
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/macros': typeof MacrosRoute
   '/protein': typeof ProteinRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/body-fat'
     | '/body-recomposition'
     | '/calorie-deficit'
+    | '/fat-loss-timeline'
     | '/lean-body-mass'
     | '/macros'
     | '/protein'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/body-fat'
     | '/body-recomposition'
     | '/calorie-deficit'
+    | '/fat-loss-timeline'
     | '/lean-body-mass'
     | '/macros'
     | '/protein'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/body-fat'
     | '/body-recomposition'
     | '/calorie-deficit'
+    | '/fat-loss-timeline'
     | '/lean-body-mass'
     | '/macros'
     | '/protein'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   BodyFatRoute: typeof BodyFatRoute
   BodyRecompositionRoute: typeof BodyRecompositionRoute
   CalorieDeficitRoute: typeof CalorieDeficitRoute
+  FatLossTimelineRoute: typeof FatLossTimelineRoute
   LeanBodyMassRoute: typeof LeanBodyMassRoute
   MacrosRoute: typeof MacrosRoute
   ProteinRoute: typeof ProteinRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeanBodyMassRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fat-loss-timeline': {
+      id: '/fat-loss-timeline'
+      path: '/fat-loss-timeline'
+      fullPath: '/fat-loss-timeline'
+      preLoaderRoute: typeof FatLossTimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calorie-deficit': {
       id: '/calorie-deficit'
       path: '/calorie-deficit'
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   BodyFatRoute: BodyFatRoute,
   BodyRecompositionRoute: BodyRecompositionRoute,
   CalorieDeficitRoute: CalorieDeficitRoute,
+  FatLossTimelineRoute: FatLossTimelineRoute,
   LeanBodyMassRoute: LeanBodyMassRoute,
   MacrosRoute: MacrosRoute,
   ProteinRoute: ProteinRoute,
