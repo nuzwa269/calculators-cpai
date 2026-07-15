@@ -17,6 +17,7 @@ import { Route as ReverseDietRouteImport } from './routes/reverse-diet'
 import { Route as ProteinRouteImport } from './routes/protein'
 import { Route as PlateauFixRouteImport } from './routes/plateau-fix'
 import { Route as OneRepMaxRouteImport } from './routes/one-rep-max'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as MacrosRouteImport } from './routes/macros'
 import { Route as LeanBulkRouteImport } from './routes/lean-bulk'
 import { Route as LeanBodyMassRouteImport } from './routes/lean-body-mass'
@@ -28,6 +29,9 @@ import { Route as BodyRecompositionRouteImport } from './routes/body-recompositi
 import { Route as BodyFatRouteImport } from './routes/body-fat'
 import { Route as BmrRouteImport } from './routes/bmr'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
+import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 
 const WaterIntakeRoute = WaterIntakeRouteImport.update({
   id: '/water-intake',
@@ -67,6 +71,11 @@ const PlateauFixRoute = PlateauFixRouteImport.update({
 const OneRepMaxRoute = OneRepMaxRouteImport.update({
   id: '/one-rep-max',
   path: '/one-rep-max',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MacrosRoute = MacrosRouteImport.update({
@@ -124,6 +133,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotmcpChar93ListToolsRoute =
+  Char91DotmcpChar93ListToolsRouteImport.update({
+    id: '/.mcp/list-tools',
+    path: '/.mcp/list-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotmcpChar93InvokeToolToolRoute =
+  Char91DotmcpChar93InvokeToolToolRouteImport.update({
+    id: '/.mcp/invoke-tool/$tool',
+    path: '/.mcp/invoke-tool/$tool',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -137,6 +164,7 @@ export interface FileRoutesByFullPath {
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/lean-bulk': typeof LeanBulkRoute
   '/macros': typeof MacrosRoute
+  '/mcp': typeof McpRoute
   '/one-rep-max': typeof OneRepMaxRoute
   '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
@@ -145,6 +173,9 @@ export interface FileRoutesByFullPath {
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -158,6 +189,7 @@ export interface FileRoutesByTo {
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/lean-bulk': typeof LeanBulkRoute
   '/macros': typeof MacrosRoute
+  '/mcp': typeof McpRoute
   '/one-rep-max': typeof OneRepMaxRoute
   '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
@@ -166,6 +198,9 @@ export interface FileRoutesByTo {
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -180,6 +215,7 @@ export interface FileRoutesById {
   '/lean-body-mass': typeof LeanBodyMassRoute
   '/lean-bulk': typeof LeanBulkRoute
   '/macros': typeof MacrosRoute
+  '/mcp': typeof McpRoute
   '/one-rep-max': typeof OneRepMaxRoute
   '/plateau-fix': typeof PlateauFixRoute
   '/protein': typeof ProteinRoute
@@ -188,6 +224,9 @@ export interface FileRoutesById {
   '/tdee': typeof TdeeRoute
   '/waist-to-hip-ratio': typeof WaistToHipRatioRoute
   '/water-intake': typeof WaterIntakeRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -203,6 +242,7 @@ export interface FileRouteTypes {
     | '/lean-body-mass'
     | '/lean-bulk'
     | '/macros'
+    | '/mcp'
     | '/one-rep-max'
     | '/plateau-fix'
     | '/protein'
@@ -211,6 +251,9 @@ export interface FileRouteTypes {
     | '/tdee'
     | '/waist-to-hip-ratio'
     | '/water-intake'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
+    | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -224,6 +267,7 @@ export interface FileRouteTypes {
     | '/lean-body-mass'
     | '/lean-bulk'
     | '/macros'
+    | '/mcp'
     | '/one-rep-max'
     | '/plateau-fix'
     | '/protein'
@@ -232,6 +276,9 @@ export interface FileRouteTypes {
     | '/tdee'
     | '/waist-to-hip-ratio'
     | '/water-intake'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
+    | '/.mcp/invoke-tool/$tool'
   id:
     | '__root__'
     | '/'
@@ -245,6 +292,7 @@ export interface FileRouteTypes {
     | '/lean-body-mass'
     | '/lean-bulk'
     | '/macros'
+    | '/mcp'
     | '/one-rep-max'
     | '/plateau-fix'
     | '/protein'
@@ -253,6 +301,9 @@ export interface FileRouteTypes {
     | '/tdee'
     | '/waist-to-hip-ratio'
     | '/water-intake'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
+    | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -267,6 +318,7 @@ export interface RootRouteChildren {
   LeanBodyMassRoute: typeof LeanBodyMassRoute
   LeanBulkRoute: typeof LeanBulkRoute
   MacrosRoute: typeof MacrosRoute
+  McpRoute: typeof McpRoute
   OneRepMaxRoute: typeof OneRepMaxRoute
   PlateauFixRoute: typeof PlateauFixRoute
   ProteinRoute: typeof ProteinRoute
@@ -275,6 +327,9 @@ export interface RootRouteChildren {
   TdeeRoute: typeof TdeeRoute
   WaistToHipRatioRoute: typeof WaistToHipRatioRoute
   WaterIntakeRoute: typeof WaterIntakeRoute
+  Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -333,6 +388,13 @@ declare module '@tanstack/react-router' {
       path: '/one-rep-max'
       fullPath: '/one-rep-max'
       preLoaderRoute: typeof OneRepMaxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/macros': {
@@ -412,6 +474,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/list-tools': {
+      id: '/.mcp/list-tools'
+      path: '/.mcp/list-tools'
+      fullPath: '/.mcp/list-tools'
+      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/invoke-tool/$tool': {
+      id: '/.mcp/invoke-tool/$tool'
+      path: '/.mcp/invoke-tool/$tool'
+      fullPath: '/.mcp/invoke-tool/$tool'
+      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -427,6 +510,7 @@ const rootRouteChildren: RootRouteChildren = {
   LeanBodyMassRoute: LeanBodyMassRoute,
   LeanBulkRoute: LeanBulkRoute,
   MacrosRoute: MacrosRoute,
+  McpRoute: McpRoute,
   OneRepMaxRoute: OneRepMaxRoute,
   PlateauFixRoute: PlateauFixRoute,
   ProteinRoute: ProteinRoute,
@@ -435,6 +519,10 @@ const rootRouteChildren: RootRouteChildren = {
   TdeeRoute: TdeeRoute,
   WaistToHipRatioRoute: WaistToHipRatioRoute,
   WaterIntakeRoute: WaterIntakeRoute,
+  Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
