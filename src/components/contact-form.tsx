@@ -60,7 +60,7 @@ export function ContactForm() {
         </p>
         <button
           onClick={() => setDone(false)}
-          className="mt-4 text-sm font-medium text-primary hover:text-orange-800"
+          className="mt-4 text-sm font-medium text-primary hover:opacity-80"
         >
           Send another message →
         </button>
