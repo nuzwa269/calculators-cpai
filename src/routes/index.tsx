@@ -79,7 +79,7 @@ function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-95" aria-hidden />
+        <div className="absolute inset-0  opacity-95" aria-hidden />
         <div
           aria-hidden
           className="absolute inset-0 opacity-40"
@@ -91,15 +91,15 @@ function Home() {
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-500/30 blur-3xl animate-[pulse_7s_ease-in-out_infinite]"
+          className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl animate-[pulse_7s_ease-in-out_infinite]"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-red-600/25 blur-3xl animate-[pulse_9s_ease-in-out_infinite]"
+          className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-primary/10 blur-3xl animate-[pulse_9s_ease-in-out_infinite]"
         />
         <div className="relative mx-auto max-w-5xl px-4 py-20 text-center text-primary-foreground sm:px-6 sm:py-28">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-white/90 ring-1 ring-inset ring-white/20 animate-fade-in">
-            <Sparkles className="h-3.5 w-3.5 text-orange-300" />
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-card/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-white/90 ring-1 ring-inset ring-white/20 animate-fade-in">
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
             {CALCULATORS.length} free calculators
           </span>
           <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl animate-fade-in">
@@ -116,9 +116,9 @@ function Home() {
                 <a
                   key={c}
                   href={`#${c}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 font-medium text-white ring-1 ring-inset ring-white/20 transition-all hover:-translate-y-0.5 hover:bg-white/20"
+                  className="inline-flex items-center gap-2 rounded-full bg-card/10 px-4 py-2 font-medium text-white ring-1 ring-inset ring-white/20 transition-all hover:-translate-y-0.5 hover:bg-card/20"
                 >
-                  <Icon className="h-3.5 w-3.5 text-orange-300" />
+                  <Icon className="h-3.5 w-3.5 text-primary" />
                   {CATEGORY_LABELS[c]}
                 </a>
               );
@@ -135,10 +135,10 @@ function Home() {
             ].map((t, i) => (
               <div
                 key={t.label}
-                className="flex items-center justify-center gap-2 rounded-2xl bg-white/5 px-3 py-2.5 text-xs text-white/85 ring-1 ring-white/10 backdrop-blur-sm transition-colors hover:bg-white/10 animate-fade-in"
+                className="flex items-center justify-center gap-2 rounded-2xl bg-card/5 px-3 py-2.5 text-xs text-white/85 ring-1 ring-white/10 backdrop-blur-sm transition-colors hover:bg-card/10 animate-fade-in"
                 style={{ animationDelay: `${280 + i * 80}ms` }}
               >
-                <t.icon className="h-3.5 w-3.5 text-orange-300" />
+                <t.icon className="h-3.5 w-3.5 text-primary" />
                 <span className="font-medium">{t.label}</span>
               </div>
             ))}
@@ -160,7 +160,7 @@ function Home() {
               className="text-center animate-fade-in"
               style={{ animationDelay: `${i * 80}ms` }}
             >
-              <div className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
+              <div className="bg-primary bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
                 {s.value}
               </div>
               <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
@@ -178,7 +178,7 @@ function Home() {
             <section key={cat} id={cat} className="mb-16 scroll-mt-20 animate-fade-in">
               <div className="mb-6 flex items-end justify-between gap-4">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-red-600 text-white shadow-elegant">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white ">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div>
@@ -197,12 +197,12 @@ function Home() {
                   <a
                     key={cal.slug}
                     href={`/${cal.slug}`}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-elegant animate-fade-in"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-5  transition-all hover:-translate-y-0.5 hover:border-primary hover: animate-fade-in"
                     style={{ animationDelay: `${i * 50}ms` }}
                   >
                     <div
                       aria-hidden
-                      className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-orange-500/0 blur-2xl transition-all duration-500 group-hover:bg-orange-500/25"
+                      className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-primary/20 blur-2xl transition-all duration-500 group-"
                     />
                     <div className="relative text-lg font-semibold text-foreground group-hover:text-primary">
                       {cal.short}
@@ -222,8 +222,8 @@ function Home() {
         })}
 
         {/* How it works */}
-        <section className="mb-16 rounded-3xl border border-border bg-card p-6 shadow-card sm:p-10 animate-fade-in">
-          <div className="mb-3 h-1 w-10 rounded-full bg-gradient-to-r from-orange-500 to-red-600" />
+        <section className="mb-16 rounded-3xl border border-border bg-card p-6  sm:p-10 animate-fade-in">
+          <div className="mb-3 h-1 w-10 rounded-full bg-primary" />
           <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
             How CoachProAI calculators work
           </h2>
@@ -254,7 +254,7 @@ function Home() {
                 className="group rounded-2xl border border-border bg-background p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-md animate-fade-in"
                 style={{ animationDelay: `${i * 90}ms` }}
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-red-600 text-white shadow-md">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-md">
                   <s.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-sm font-semibold text-foreground">{s.title}</h3>
@@ -265,13 +265,13 @@ function Home() {
         </section>
 
         {/* Coach quote */}
-        <section className="relative mb-16 overflow-hidden rounded-3xl p-[1px] shadow-elegant animate-fade-in">
+        <section className="relative mb-16 overflow-hidden rounded-3xl p-[1px]  animate-fade-in">
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-br from-orange-500 via-red-500 to-orange-500 opacity-90"
+            className="absolute inset-0 bg-primary opacity-90"
           />
-          <div className="relative rounded-[calc(1.5rem-1px)] bg-neutral-950 p-6 text-white sm:p-10">
-            <div className="text-4xl leading-none text-orange-400">“</div>
+          <div className="relative rounded-[calc(1.5rem-1px)] bg-background p-6 text-white sm:p-10">
+            <div className="text-4xl leading-none text-primary">“</div>
             <blockquote className="mt-2 text-lg font-medium leading-relaxed text-white/90 sm:text-2xl">
               Numbers start the plan — behavior finishes it. A calculator gives you the anchor;
               consistency does the rest.
@@ -283,14 +283,14 @@ function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="relative overflow-hidden rounded-3xl bg-neutral-950 p-6 text-white shadow-2xl ring-1 ring-white/5 sm:p-10 animate-fade-in">
+        <section className="relative overflow-hidden rounded-3xl bg-background p-6 text-white shadow-2xl ring-1 ring-white/5 sm:p-10 animate-fade-in">
           <div
             aria-hidden
-            className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-500/25 blur-3xl animate-[pulse_7s_ease-in-out_infinite]"
+            className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl animate-[pulse_7s_ease-in-out_infinite]"
           />
           <div
             aria-hidden
-            className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-red-600/20 blur-3xl animate-[pulse_9s_ease-in-out_infinite]"
+            className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl animate-[pulse_9s_ease-in-out_infinite]"
           />
           <h2 className="relative text-2xl font-semibold tracking-tight sm:text-3xl">
             Want a plan built around your numbers?
@@ -303,13 +303,13 @@ function Home() {
             <Link
               to="/coach"
               hash="contact"
-              className="inline-flex items-center rounded-xl bg-gradient-to-r from-orange-500 to-red-600 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-all hover:opacity-90 hover:shadow-orange-500/40"
+              className="inline-flex items-center rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-all hover:opacity-90 "
             >
               Book a coach
             </Link>
             <a
               href="#nutrition"
-              className="inline-flex items-center rounded-xl border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center rounded-xl border border-white/15 bg-card/5 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-card/10"
             >
               Browse calculators
             </a>
