@@ -233,7 +233,7 @@ function CoachPage() {
       <section id="contact" className="scroll-mt-20 border-t border-border/60 bg-muted">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div>
-            <span className="inline-flex items-center rounded-full bg-orange-100 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">
               Start your plan
             </span>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
