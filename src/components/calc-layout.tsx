@@ -327,7 +327,7 @@ export function CalcLayout({
               ].map((u, i) => (
                 <div
                   key={u.title}
-                  className="rounded-2xl bg-card p-5 ring-1 ring-border transition-all hover:-translate-y-0.5 hover:ring-orange-300 hover:shadow-md animate-fade-in"
+                  className="rounded-2xl bg-card p-5 ring-1 ring-border transition-all hover:-translate-y-0.5 hover:ring-primary hover:shadow-md animate-fade-in"
                   style={{ animationDelay: `${i * 90}ms` }}
                 >
                   <h3 className="text-sm font-semibold text-foreground">{u.title}</h3>

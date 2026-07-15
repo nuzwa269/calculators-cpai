@@ -90,7 +90,7 @@ export function ContactForm() {
           <select
             id="goal"
             name="goal"
-            className="mt-1.5 flex h-9 w-full rounded-md border border-input bg-card px-3 py-1 text-sm text-foreground shadow-sm outline-none focus:ring-2 focus:ring-orange-500"
+            className="mt-1.5 flex h-9 w-full rounded-md border border-input bg-card px-3 py-1 text-sm text-foreground shadow-sm outline-none focus:ring-2 focus:ring-primary"
             defaultValue=""
           >
             <option value="" disabled>
