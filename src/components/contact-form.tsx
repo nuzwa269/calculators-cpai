@@ -53,14 +53,14 @@ export function ContactForm() {
 
   if (done) {
     return (
-      <div className="rounded-2xl border border-orange-200 bg-orange-50 p-6 text-neutral-900">
+      <div className="rounded-2xl border border-primary bg-primary/10 p-6 text-foreground">
         <h3 className="text-lg font-semibold">Message received ✓</h3>
-        <p className="mt-2 text-sm text-neutral-700">
+        <p className="mt-2 text-sm text-foreground">
           Thanks for reaching out. Amna typically replies within 24 hours on business days.
         </p>
         <button
           onClick={() => setDone(false)}
-          className="mt-4 text-sm font-medium text-orange-700 hover:text-orange-800"
+          className="mt-4 text-sm font-medium text-primary hover:opacity-80"
         >
           Send another message →
         </button>
@@ -82,7 +82,7 @@ export function ContactForm() {
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <Label htmlFor="phone">Phone <span className="text-neutral-400">(optional)</span></Label>
+          <Label htmlFor="phone">Phone <span className="text-muted-foreground">(optional)</span></Label>
           <Input id="phone" name="phone" maxLength={40} placeholder="+92 ..." className="mt-1.5" />
         </div>
         <div>
@@ -90,7 +90,7 @@ export function ContactForm() {
           <select
             id="goal"
             name="goal"
-            className="mt-1.5 flex h-9 w-full rounded-md border border-input bg-white px-3 py-1 text-sm text-neutral-900 shadow-sm outline-none focus:ring-2 focus:ring-orange-500"
+            className="mt-1.5 flex h-9 w-full rounded-md border border-input bg-card px-3 py-1 text-sm text-foreground shadow-sm outline-none focus:ring-2 focus:ring-primary"
             defaultValue=""
           >
             <option value="" disabled>
@@ -117,11 +117,11 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={submitting}
-        className="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white hover:opacity-90"
+        className="w-full bg-primary text-white hover:opacity-90"
       >
         {submitting ? "Sending..." : "Request my personal plan"}
       </Button>
-      <p className="text-xs text-neutral-500">
+      <p className="text-xs text-muted-foreground">
         Your details are private and used only to reply to your inquiry.
       </p>
     </form>

@@ -103,9 +103,9 @@ function CoachPage() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-neutral-950 text-white">
-        <div aria-hidden className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-orange-500/25 blur-3xl" />
-        <div aria-hidden className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-red-600/20 blur-3xl" />
+      <section className="relative overflow-hidden bg-background text-white">
+        <div aria-hidden className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
+        <div aria-hidden className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
           <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90 ring-1 ring-inset ring-white/15">
             Certified Nutritionist · DNS
@@ -120,7 +120,7 @@ function CoachPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center rounded-xl bg-gradient-to-r from-orange-500 to-red-600 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-opacity hover:opacity-90"
+              className="inline-flex items-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-opacity hover:opacity-90"
             >
               Book a consultation
             </a>
@@ -140,10 +140,10 @@ function CoachPage() {
           <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             About Amna
           </h2>
-          <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-neutral-700">
+          <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-foreground">
             <p>
               I'm Amna Wasim — a Certified Nutritionist and holder of a bachelor's degree in
-              <strong className="font-semibold text-neutral-900"> Doctor of Nutrition Sciences (DNS)</strong>.
+              <strong className="font-semibold text-foreground"> Doctor of Nutrition Sciences (DNS)</strong>.
               I have two years of practical clinical experience working with patients in both
               public and private hospitals in Pakistan.
             </p>
@@ -161,13 +161,13 @@ function CoachPage() {
       </section>
 
       {/* Services */}
-      <section id="services" className="scroll-mt-20 border-t border-border/60 bg-neutral-50">
+      <section id="services" className="scroll-mt-20 border-t border-border/60 bg-muted">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Services
             </h2>
-            <p className="mt-3 text-[15px] text-neutral-600">
+            <p className="mt-3 text-[15px] text-muted-foreground">
               Every plan is 100% personalized. Pick what you need — or ask, and we'll build a
               combined program for you.
             </p>
@@ -176,10 +176,10 @@ function CoachPage() {
             {SERVICES.map((s) => (
               <article
                 key={s.title}
-                className="rounded-2xl border border-border bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-orange-500 hover:shadow-lg"
+                className="rounded-2xl border border-border bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-lg"
               >
-                <h3 className="text-sm font-semibold text-neutral-950">{s.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-neutral-600">{s.body}</p>
+                <h3 className="text-sm font-semibold text-foreground">{s.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
               </article>
             ))}
           </div>
@@ -193,7 +193,7 @@ function CoachPage() {
             <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Tools that pair with your plan
             </h2>
-            <p className="mt-3 text-[15px] text-neutral-600">
+            <p className="mt-3 text-[15px] text-muted-foreground">
               Free calculators visitors most often use before starting a service — try one, then request your full personalized plan.
             </p>
           </div>
@@ -202,7 +202,7 @@ function CoachPage() {
               <Link
                 key={to}
                 to={to}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:border-orange-500 hover:text-orange-700"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:border-primary hover:text-primary"
               >
                 <Icon className="h-4 w-4" aria-hidden />
                 {title}
@@ -220,9 +220,9 @@ function CoachPage() {
           </h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
             {VALUES.map((v) => (
-              <div key={v.title} className="rounded-2xl border border-border bg-neutral-50 p-6">
-                <h3 className="text-base font-semibold text-neutral-950">{v.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{v.body}</p>
+              <div key={v.title} className="rounded-2xl border border-border bg-muted p-6">
+                <h3 className="text-base font-semibold text-foreground">{v.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.body}</p>
               </div>
             ))}
           </div>
@@ -230,25 +230,25 @@ function CoachPage() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="scroll-mt-20 border-t border-border/60 bg-neutral-50">
+      <section id="contact" className="scroll-mt-20 border-t border-border/60 bg-muted">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div>
-            <span className="inline-flex items-center rounded-full bg-orange-100 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-orange-700">
+            <span className="inline-flex items-center rounded-full bg-primary/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">
               Start your plan
             </span>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               Request your personalized plan
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
               Tell Amna a bit about yourself and your goal. You'll get a reply — usually within
               24 hours on business days — with next steps for your consultation.
             </p>
-            <div className="mt-8 space-y-3 text-sm text-neutral-700">
+            <div className="mt-8 space-y-3 text-sm text-foreground">
               <a
                 href={FACEBOOK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-2 font-medium transition-colors hover:border-orange-500 hover:text-orange-700"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-2 font-medium transition-colors hover:border-primary hover:text-primary"
               >
                 <span aria-hidden>💬</span> Message on Facebook
               </a>

@@ -45,7 +45,7 @@ export function SiteHeader() {
         <Link
           to="/coach"
           hash="contact"
-          className="inline-flex items-center rounded-md bg-gradient-to-r from-orange-500 to-red-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
+          className="inline-flex items-center rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
         >
           Book coach
         </Link>
