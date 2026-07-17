@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ThemeToggle } from "./theme-toggle";
 
 export function SiteHeader() {
   return (
@@ -42,13 +43,16 @@ export function SiteHeader() {
             Coach
           </Link>
         </nav>
-        <Link
-          to="/coach"
-          hash="contact"
-          className="inline-flex items-center rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
-        >
-          Book coach
-        </Link>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Link
+            to="/coach"
+            hash="contact"
+            className="inline-flex items-center rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
+          >
+            Book coach
+          </Link>
+        </div>
       </div>
     </header>
   );
