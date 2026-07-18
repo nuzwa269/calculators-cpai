@@ -34,14 +34,7 @@ export const Route = createFileRoute("/coach")({
             "Doctor of Nutrition Sciences with two years hospital experience. Personalized diet, weight loss, PCOS, diabetes and clinical nutrition plans.",
           url: "/coach",
           sameAs: [FACEBOOK],
-          knowsAbout: [
-            "Clinical nutrition",
-            "Weight loss",
-            "PCOS",
-            "Diabetes",
-            "Ketogenic diet",
-            "Sports nutrition",
-          ],
+          knowsAbout: ["Clinical nutrition", "Weight loss", "PCOS", "Diabetes", "Ketogenic diet", "Sports nutrition"],
         }),
       },
     ],
@@ -50,15 +43,24 @@ export const Route = createFileRoute("/coach")({
 });
 
 const SERVICES: { title: string; body: string }[] = [
-  { title: "Counted calorie plans", body: "Precise, goal-based calorie targets built around your body, activity and lifestyle." },
+  {
+    title: "Counted calorie plans",
+    body: "Precise, goal-based calorie targets built around your body, activity and lifestyle.",
+  },
   { title: "Healthy diet plans", body: "Balanced, sustainable eating plans using foods you actually enjoy." },
   { title: "Weight loss plans", body: "Structured fat-loss programs with weekly check-ins and adjustments." },
-  { title: "Workout plans", body: "Simple, effective training you can pair with your nutrition to see results faster." },
+  {
+    title: "Workout plans",
+    body: "Simple, effective training you can pair with your nutrition to see results faster.",
+  },
   { title: "Clinical nutrition", body: "Evidence-based nutrition therapy for medical conditions and recovery." },
   { title: "Sports nutrition", body: "Fuel, hydration and recovery strategies for athletes and active adults." },
   { title: "Supplements guidance", body: "What actually helps, what's a waste — honest, personalized advice." },
   { title: "Diabetes diet", body: "Blood-sugar-friendly meal plans built around your medication and routine." },
-  { title: "Heart-healthy diet", body: "Cardio-protective nutrition for cholesterol, blood pressure and long-term heart health." },
+  {
+    title: "Heart-healthy diet",
+    body: "Cardio-protective nutrition for cholesterol, blood pressure and long-term heart health.",
+  },
   { title: "Hypertension diet", body: "DASH-style, low-sodium plans tailored to your food preferences." },
   { title: "Kidney (renal) diet", body: "Protein, potassium and phosphorus-aware plans for kidney health." },
   { title: "Ketogenic diet", body: "Safe, structured keto for fat loss or metabolic goals — not a fad version." },
@@ -66,10 +68,22 @@ const SERVICES: { title: string; body: string }[] = [
   { title: "Therapeutic diet", body: "Medical nutrition therapy for gut, liver, thyroid and other conditions." },
   { title: "Healthy recipes", body: "Simple, tasty recipes matched to your plan — no bland dieting food." },
   { title: "Healthy lifestyle coaching", body: "Sleep, stress, and habit support so the nutrition actually sticks." },
-  { title: "Physical activity guidance", body: "Movement plans that fit real schedules and any starting fitness level." },
-  { title: "Thyroid nutrition", body: "Iodine, selenium and energy-balanced plans for hypothyroid, Hashimoto and hyperthyroid — designed to work alongside your medication." },
-  { title: "Pregnancy & lactation nutrition", body: "Trimester-based prenatal and breastfeeding plans focused on folate, iron, calcium and safe calorie intake for mother and baby." },
-  { title: "Gut health & IBS nutrition", body: "Low-FODMAP and gut-friendly plans for bloating, IBS, acid reflux and food sensitivities." },
+  {
+    title: "Physical activity guidance",
+    body: "Movement plans that fit real schedules and any starting fitness level.",
+  },
+  {
+    title: "Thyroid nutrition",
+    body: "Iodine, selenium and energy-balanced plans for hypothyroid, Hashimoto and hyperthyroid — designed to work alongside your medication.",
+  },
+  {
+    title: "Pregnancy & lactation nutrition",
+    body: "Trimester-based prenatal and breastfeeding plans focused on folate, iron, calcium and safe calorie intake for mother and baby.",
+  },
+  {
+    title: "Gut health & IBS nutrition",
+    body: "Low-FODMAP and gut-friendly plans for bloating, IBS, acid reflux and food sensitivities.",
+  },
 ];
 
 const PAIR_TOOLS: { title: string; to: string; Icon: typeof Calculator }[] = [
@@ -103,30 +117,27 @@ function CoachPage() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-background text-white">
+      <section className="relative overflow-hidden bg-background text-black">
         <div aria-hidden className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
         <div aria-hidden className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
-          <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90 ring-1 ring-inset ring-white/15">
+          <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-black/90 ring-1 ring-inset ring-white/15">
             Certified Nutritionist · DNS
           </span>
-          <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Amna Wasim
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80 sm:text-xl">
-            Personalized nutrition and lifestyle plans that actually fit your body, your health,
-            and your daily life.
+          <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Amna Wasim</h1>
+          <p className="mt-4 max-w-2xl text-lg text-black/80 sm:text-xl">
+            Personalized nutrition and lifestyle plans that actually fit your body, your health, and your daily life.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-opacity hover:opacity-90"
+              className="inline-flex items-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-black shadow-lg transition-opacity hover:opacity-90"
             >
               Book a consultation
             </a>
             <a
               href="#services"
-              className="inline-flex items-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-black transition-colors hover:bg-white/10"
             >
               See services
             </a>
@@ -137,24 +148,22 @@ function CoachPage() {
       {/* About */}
       <section id="about" className="scroll-mt-20 bg-background">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            About Amna
-          </h2>
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">About Amna</h2>
           <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-foreground">
             <p>
               I'm Amna Wasim — a Certified Nutritionist and holder of a bachelor's degree in
-              <strong className="font-semibold text-foreground"> Doctor of Nutrition Sciences (DNS)</strong>.
-              I have two years of practical clinical experience working with patients in both
-              public and private hospitals in Pakistan.
+              <strong className="font-semibold text-foreground"> Doctor of Nutrition Sciences (DNS)</strong>. I have two
+              years of practical clinical experience working with patients in both public and private hospitals in
+              Pakistan.
             </p>
             <p>
-              I believe in the quiet magic of food and good nutrition. Whether the goal is losing
-              weight, managing diabetes or PCOS, recovering from an illness, or simply feeling
-              lighter and stronger in daily life — the right plan changes everything.
+              I believe in the quiet magic of food and good nutrition. Whether the goal is losing weight, managing
+              diabetes or PCOS, recovering from an illness, or simply feeling lighter and stronger in daily life — the
+              right plan changes everything.
             </p>
             <p>
-              My goal is simple: guide you toward a healthier, sustainable lifestyle with a plan
-              built specifically around you — not a template from the internet.
+              My goal is simple: guide you toward a healthier, sustainable lifestyle with a plan built specifically
+              around you — not a template from the internet.
             </p>
           </div>
         </div>
@@ -164,12 +173,9 @@ function CoachPage() {
       <section id="services" className="scroll-mt-20 border-t border-border/60 bg-muted">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              Services
-            </h2>
+            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Services</h2>
             <p className="mt-3 text-[15px] text-muted-foreground">
-              Every plan is 100% personalized. Pick what you need — or ask, and we'll build a
-              combined program for you.
+              Every plan is 100% personalized. Pick what you need — or ask, and we'll build a combined program for you.
             </p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -194,7 +200,8 @@ function CoachPage() {
               Tools that pair with your plan
             </h2>
             <p className="mt-3 text-[15px] text-muted-foreground">
-              Free calculators visitors most often use before starting a service — try one, then request your full personalized plan.
+              Free calculators visitors most often use before starting a service — try one, then request your full
+              personalized plan.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-2.5">
@@ -215,9 +222,7 @@ function CoachPage() {
       {/* Why */}
       <section className="border-t border-border/60 bg-background">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Why work with Amna
-          </h2>
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Why work with Amna</h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
             {VALUES.map((v) => (
               <div key={v.title} className="rounded-2xl border border-border bg-muted p-6">
@@ -240,8 +245,8 @@ function CoachPage() {
               Request your personalized plan
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-              Tell Amna a bit about yourself and your goal. You'll get a reply — usually within
-              24 hours on business days — with next steps for your consultation.
+              Tell Amna a bit about yourself and your goal. You'll get a reply — usually within 24 hours on business
+              days — with next steps for your consultation.
             </p>
             <div className="mt-8 space-y-3 text-sm text-foreground">
               <a
