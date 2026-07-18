@@ -117,27 +117,27 @@ function CoachPage() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-background text-black">
+      <section className="relative overflow-hidden bg-zinc-950 text-white">
         <div aria-hidden className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
         <div aria-hidden className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
-          <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-black/90 ring-1 ring-inset ring-white/15">
+          <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90 ring-1 ring-inset ring-white/15">
             Certified Nutritionist · DNS
           </span>
           <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Amna Wasim</h1>
-          <p className="mt-4 max-w-2xl text-lg text-black/80 sm:text-xl">
+          <p className="mt-4 max-w-2xl text-lg text-white/80 sm:text-xl">
             Personalized nutrition and lifestyle plans that actually fit your body, your health, and your daily life.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-black shadow-lg transition-opacity hover:opacity-90"
+              className="inline-flex items-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-opacity hover:opacity-90"
             >
               Book a consultation
             </a>
             <a
               href="#services"
-              className="inline-flex items-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-black transition-colors hover:bg-white/10"
+              className="inline-flex items-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-white/10"
             >
               See services
             </a>
@@ -182,7 +182,7 @@ function CoachPage() {
             {SERVICES.map((s) => (
               <article
                 key={s.title}
-                className="rounded-2xl border border-border bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-lg"
+                className="rounded-2xl border border-border bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-lg"
               >
                 <h3 className="text-sm font-semibold text-foreground">{s.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
@@ -253,13 +253,13 @@ function CoachPage() {
                 href={FACEBOOK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-2 font-medium transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
               >
                 <span aria-hidden>💬</span> Message on Facebook
               </a>
             </div>
           </div>
-          <div className="rounded-3xl bg-white p-6 shadow-xl sm:p-8">
+          <div className="rounded-3xl border border-border bg-card p-6 shadow-xl sm:p-8">
             <ContactForm />
           </div>
         </div>
