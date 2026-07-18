@@ -78,8 +78,8 @@ function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0  opacity-95" aria-hidden />
+      <section className="relative overflow-hidden bg-zinc-950">
+        <div className="absolute inset-0 opacity-95" aria-hidden />
         <div
           aria-hidden
           className="absolute inset-0 opacity-40"
@@ -265,12 +265,12 @@ function Home() {
         </section>
 
         {/* Coach quote */}
-        <section className="relative mb-16 overflow-hidden rounded-3xl p-[1px]  animate-fade-in">
+        <section className="relative mb-16 overflow-hidden rounded-3xl p-[1px] animate-fade-in">
           <div
             aria-hidden
             className="absolute inset-0 bg-primary opacity-90"
           />
-          <div className="relative rounded-[calc(1.5rem-1px)] bg-background p-6 text-white sm:p-10">
+          <div className="relative rounded-[calc(1.5rem-1px)] bg-zinc-950 p-6 text-white sm:p-10">
             <div className="text-4xl leading-none text-primary">“</div>
             <blockquote className="mt-2 text-lg font-medium leading-relaxed text-white/90 sm:text-2xl">
               Numbers start the plan — behavior finishes it. A calculator gives you the anchor;
@@ -283,7 +283,7 @@ function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="relative overflow-hidden rounded-3xl bg-background p-6 text-white shadow-2xl ring-1 ring-white/5 sm:p-10 animate-fade-in">
+        <section className="relative overflow-hidden rounded-3xl bg-zinc-950 p-6 text-white shadow-2xl ring-1 ring-white/5 sm:p-10 animate-fade-in">
           <div
             aria-hidden
             className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl animate-[pulse_7s_ease-in-out_infinite]"
